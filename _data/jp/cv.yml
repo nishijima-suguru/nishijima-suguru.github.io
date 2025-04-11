@@ -1,0 +1,61 @@
+- title: 基本情報
+  type: map
+  contents:
+    - name: 氏名
+      value: 西嶋 傑
+    - name: 所属
+      value: 東京大学大学 院新領域創成科学研究科附属 生命データサイエンスセンター
+    - name: 住所
+      value: 277-0882 千葉県柏市柏の葉5-4-7 東京大学柏キャンパス 情報生命科学実験棟
+    - name: email
+      value: nishijima.suguru[at].gmail.com
+
+- title: 職歴
+  type: time_table
+  contents:
+    - title: 特任准教授
+      institution: 東京大学大学 院新領域創成科学研究科附属 生命データサイエンスセンター
+      year: 2025年4月 -
+    - title: 客員研究員
+      institution: 東京大学大学 院新領域創成科学研究科附属 生命データサイエンスセンター
+      year: 2024年11月 - 2025年3月     
+    - title: Postdoctoral fellow
+      institution: Molecular and Systems Biology unit, European Molecular Biology Laboratory
+      year: 2019年1月 - 2024年9月
+    - title: 特別研究員
+      institution: 産業技術総合研究所 Computational Bio Big-Data Open Innovation Laboratory
+      year: 2016年9月 - 2018年12月
+    - title: 特任助教
+      institution: 早稲田大学理工学術院
+      year: 2016年4月 - 2016年8月
+    - title: 日本学術振興会 特別研究員（DC2）
+      institution: 東京大学 大学院新領域創成科学研究科 メディカル情報生命科学専攻
+      year: 2014年4月 - 2016年3月      
+
+- title: 学歴
+  type: time_table
+  contents:
+    - title: 博士（科学）
+      institution: 東京大学 大学院新領域創成科学研究科 メディカル情報生命科学専攻
+      year: 2016年3月
+    - title: 修士
+      institution: 東京大学 大学院新領域創成科学研究科 情報生命科学専攻
+      year: 2013年3月
+    - title: 学位
+      institution: 早稲田大学 人間科学部 人間情報科学科
+      year: 2011年3月
+
+- title: 受賞
+  type: time_table
+  contents:
+    - year: 2017
+      items:
+        - 日本マイクロソフト賞 生命情報科学若手の会第9回研究会
+        - 若手奨励賞 第11回細菌学若手コロッセウム
+        - Best Poster Award, 12th International Workshop on Advanced Genomics
+    - year: 2015
+      items:
+        - 最優秀発表賞 第19回腸内細菌学会
+    - year: 2013
+      items:
+        - Outstanding Paper Award, 4th International Human Microbiome Congress

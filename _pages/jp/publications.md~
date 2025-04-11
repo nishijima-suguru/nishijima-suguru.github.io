@@ -1,0 +1,21 @@
+---
+page_id: publications
+layout: page
+permalink: /publications/
+title: 論文一覧
+nav: true
+nav_order: 2
+---
+
+<p>
+  View my full list on
+  <a href="https://scholar.google.co.jp/citations?user=HYB-2zQAAAAJ&hl" target="_blank">Google Scholar</a>
+</p>
+
+<!-- _pages/publications.md -->
+
+<div class="publications">
+
+{% bibliography %}
+
+</div>
