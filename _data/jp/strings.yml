@@ -160,5 +160,6 @@ search:
     description: Change the theme of the site to System Default
     title: Use system default theme
   theme: Theme
-selected_publications: 近年の主要な成果
+selected_publications: 近年の成果
 site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+Suguru Nishijima: 西嶋 傑
