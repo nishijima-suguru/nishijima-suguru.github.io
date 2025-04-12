@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 ---
 
-I started a new position as a Project Associate Professor at the Life Science Data Research Center, UTokyo.
+I started a new position as a Project Associate Professor at the Life Science Data Research Center @UTokyo.
 
