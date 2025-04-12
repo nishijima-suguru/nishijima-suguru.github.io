@@ -407,7 +407,13 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/books/pt-br/the_godfather/";
-            },},{id: "news-i-started-a-new-position-as-a-project-associate-professor-at-the-life-science-data-research-center-utokyo",
+            },},{id: "news-our-work-on-microbial-load-prediction-has-been-published-in-cell",
+          title: 'Our work on microbial load prediction has been published in Cell.',
+          description: "",
+          section: "News",},{id: "news-our-multi-biome-analysis-of-the-ibd-gut-microbiome-has-been-published-in-nature-communications",
+          title: 'Our multi-biome analysis of the IBD gut microbiome has been published in Nature...',
+          description: "",
+          section: "News",},{id: "news-i-started-a-new-position-as-a-project-associate-professor-at-the-life-science-data-research-center-utokyo",
           title: 'I started a new position as a Project Associate Professor at the Life...',
           description: "",
           section: "News",},{id: "projects-project-7",
