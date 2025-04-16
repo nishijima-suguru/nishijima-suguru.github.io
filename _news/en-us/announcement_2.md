@@ -6,3 +6,6 @@ related_posts: false
 ---
 
 Our multi-biome analysis of the IBD gut microbiome has been published in Nature Communications.
+<a href="https://www.nature.com/articles/s41467-024-54797-8" target="_blank" rel="noopener noreferrer">
+  https://www.nature.com/articles/s41467-024-54797-8
+</a>
