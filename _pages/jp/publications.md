@@ -26,7 +26,7 @@ nav_order: 2
     {% bibliography %}
   </div>
 
-  <h1 id="japanese-reviews" style="margin-top: 2em">日本語総説</h1>
+  <h1 id="japanese-reviews" style="margin-top: 4em">日本語総説</h1>
   <!-- _pages/publications-jp.md -->
   <div class="publications">
     {% bibliography --file papers-jp.bib --template bib-jp %}

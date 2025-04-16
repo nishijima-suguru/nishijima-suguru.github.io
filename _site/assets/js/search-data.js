@@ -408,7 +408,7 @@ ninja.data = [{
           section: "",handler: () => {
               window.location.href = "/books/pt-br/the_godfather/";
             },},{id: "news-our-work-on-microbial-load-prediction-has-been-published-in-cell-https-www-sciencedirect-com-science-article-pii-s0092867424012042",
-          title: 'Our work on microbial load prediction has been published in Cell.    https://www.sciencedirect.com/science/article/pii/S0092867424012042',
+          title: 'Our work on microbial load prediction has been published in Cell.       https://www.sciencedirect.com/science/article/pii/S0092867424012042',
           description: "",
           section: "News",},{id: "news-our-multi-biome-analysis-of-the-ibd-gut-microbiome-has-been-published-in-nature-communications-https-www-nature-com-articles-s41467-024-54797-8",
           title: 'Our multi-biome analysis of the IBD gut microbiome has been published in Nature...',
