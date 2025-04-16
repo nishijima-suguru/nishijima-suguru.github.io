@@ -27,8 +27,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/jp/publications/";
           },
-        },{id: "nav-cv",
-          title: "cv",
+        },{id: "nav-略歴",
+          title: "略歴",
           description: "",
           section: "Navigation menu",
           handler: () => {

@@ -1,0 +1,193 @@
+---
+---
+
+@string{aps = {American Physical Society,}}
+
+@article{Nishijima_2025,
+  title = {Fecal microbial load is a major determinant of gut microbiome variation and a confounder for disease associations},
+  author = {Nishijima, Suguru and Stankevic, Evelina and Aasmets, Oliver and Schmidt, Thomas S.B. and Nagata, Naoyoshi and Keller, Marisa Isabell and Ferretti, Pamela and Juel, Helene Bæk and Fullam, Anthony and Robbani, Shahriyar Mahdi and Schudoma, Christian and Hansen, Johanne Kragh and Holm, Louise Aas and Israelsen, Mads and Schierwagen, Robert and Torp, Nikolaj and Telzerow, Anja and Hercog, Rajna and Kandels, Stefanie and Hazenbrink, Diënty H.M. and Arumugam, Manimozhiyan and Bendtsen, Flemming and Brøns, Charlotte and Fonvig, Cilius Esmann and Holm, Jens-Christian and Nielsen, Trine and Pedersen, Julie Steen and Thiele, Maja Sofie and Trebicka, Jonel and Org, Elin and Krag, Aleksander and Hansen, Torben and Kuhn, Michael and Bork, Peer},
+  journal = {Cell},
+  year = {2025},
+  volume = {188},
+  number = {1},
+  pages = {222--236.e15},
+  doi = {10.1016/j.cell.2024.10.022},
+  url = {http://dx.doi.org/10.1016/j.cell.2024.10.022},
+  month = {jan},
+  dimensions = {true},  
+  altmetric = {true},
+  highlight = {https://www.embl.org/news/science-technology/microbial-load-can-influence-disease-associations/},  
+  selected = {true}
+}
+
+
+@article{nishijima_review_1,
+  author = {永田, 尚義 and 西嶋, 傑},
+  title = {メタゲノムデータを用いた腸内細菌叢への影響因子の解明},
+  journal = {ヒトマイクロバイオーム Vol.2 ～解析技術の進展とデータ駆動型・ターゲット機能型研究最前線～},
+  pages = {123--130},
+  year = {2020},
+  month = {jun},
+  lang = {ja}
+}
+
+@article{nishijima_review_2,
+  author = {鈴木, 慶彦 and 西嶋, 傑 and 森下, 真一},
+  title = {ロングリードメタゲノミクス},
+  journal = {ヒトマイクロバイオーム Vol.2 ～解析技術の進展とデータ駆動型・ターゲット機能型研究最前線～},
+  pages = {37--46},
+  year = {2020},
+  month = {jun},
+  lang = {ja}
+}
+
+@article{nishijima_review_3,
+  author = {西嶋, 傑},
+  title = {メタゲノムデータからの微生物ゲノムの再構成},
+  journal = {実験医学増刊 シングルセルゲノミクス},
+  pages = {161--166},
+  link = {https://www.yodosha.co.jp/yodobook/book/9784758103831/},
+  year = {2019},
+  month = {dec},
+  lang = {ja}
+}
+
+@article{nishijima_review_4,
+  author = {服部, 正平 and 西嶋, 傑},
+  title = {日本人腸内細菌叢のユニークさと国間多様性},
+  journal = {週間医学のあゆみ},
+  pages = {27--33},
+  year = {2018},
+  month = {oct},
+  lang = {ja}
+}
+
+@article{nishijima_review_5,
+  author = {須田, 亙 and 緒方, 勇亮 and 西嶋, 傑},
+  title = {大規模シークエンステータを用いたヒトマイクロバイオーム研究},
+  journal = {CLINICAL CALCIUM},
+  pages = {112--119},
+  year = {2018},
+  month = {sep},
+  lang = {ja}
+}
+
+@article{nishijima_review_6,
+  author = {服部, 正平 and 西嶋, 傑},
+  title = {メタゲノム解析によるヒト腸内マイクロバイオームの国レベル多様性},
+  journal = {最新醫學},
+  pages = {18--26},
+  year = {2018},
+  month = {apr},  
+  lang = {ja}
+}
+
+@article{nishijima_review_7,
+  author = {服部, 正平 and 西嶋, 傑},
+  title = {日本人腸内細菌叢の特徴と国間多様性},
+  journal = {糖尿病診療マスター},
+  pages = {456--464},
+  year = {2017},
+  month = {jun},    
+  lang = {ja}
+}
+
+@article{nishijima_review_8,
+  author = {大島, 健志朗 and 西嶋, 傑 and 服部, 正平},
+  title = {ヒト腸内細菌叢のメタゲノム解析},
+  journal = {生体の科学},
+  pages = {165--169},
+  year = {2017},
+  month = {apr},    
+  lang = {ja}
+}
+
+@article{nishijima_review_9,
+  author = {大島, 健志朗 and 西嶋, 傑},
+  title = {ヒト腸内マイクロバイオームのメタゲノム解析},
+  journal = {ファルマシア},
+  pages = {1064--1068},
+  year = {2017},
+  month = {nov},    
+  lang = {ja}
+}
+
+@incollection{nishijima_review_10,
+  author = {須田, 亙 and 西嶋, 傑 and 高安, 玲奈 and 大島, 健志朗},
+  title = {腸内細菌叢のメタゲノム解析・メタ16S 解析},
+  journal = {今すぐ始める! メタゲノム解析実験プロトコール},
+  pages = {28--38},
+  year = {2016},
+  month = {dec},
+  lang = {ja}
+}
+
+@incollection{nishijima_review_11,
+  author = {西嶋, 傑 and 服部, 正平},
+  title = {日本人腸内細菌叢のメタゲノム解析と特徴解明},
+  journal = {今すぐ始める! メタゲノム解析実験プロトコール},
+  pages = {39--43},
+  year = {2016},
+  month = {dec},  
+  lang = {ja}
+}
+
+@incollection{nishijima_review_12,
+  author = {西嶋, 傑},
+  title = {ヒト腸内細菌叢のメタゲノムデータのインフォマティクス},
+  journal = {今すぐ始める! メタゲノム解析実験プロトコール},
+  pages = {206--214},
+  year = {2016},
+  month = {dec},
+  lang = {ja}
+}
+
+@article{nishijima_review_13,
+  author = {須田, 亙 and 西嶋, 傑 and 服部, 正平},
+  title = {次世代シーケンサーを用いた腸内細菌叢の解析手法と日本人腸内細菌叢の特徴},
+  journal = {The Lipid},
+  pages = {20--26},
+  year = {2016},
+  month = {apr},
+  lang = {ja}
+}
+
+@incollection{nishijima_review_14,
+  author = {大島, 健志朗 and 西嶋, 傑 and 須田, 亙},
+  title = {メタゲノム解析・16S 解析とその解析技術},
+  journal = {ヒトマイクロバイオーム研究最前線 〜常在菌の解析技術から生態、医療分野、食品への応用研究まで〜},
+  pages = {7--15},
+  year = {2016},
+  month = {mar},
+  lang = {ja}
+}
+
+@incollection{nishijima_review_15,
+  author = {西嶋, 傑 and 服部, 正平},
+  title = {日本人腸内細菌叢のメタゲノム解析},
+  booktitle = {ヒトマイクロバイオーム研究最前線 〜常在菌の解析技術から生態、医療分野、食品への応用研究まで〜},
+  pages = {17--26},
+  year = {2016},
+  month = {mar},
+  lang = {ja}
+}
+
+@article{nishijima_review_16,
+  author = {服部, 正平 and 西嶋, 傑},
+  title = {ヒト腸内細菌マイクロバイオームの特徴},
+  journal = {G.I. Research},
+  pages = {128--135},
+  year = {2014},
+  month = {feb},
+  lang = {ja}
+}
+
+@article{nishijima_review_17,
+  author = {西嶋, 傑 and 服部, 正平},
+  title = {ヒトの腸内マイクロバイオーム},
+  journal = {細胞工学},
+  pages = {1129--1132},
+  year = {2013},
+  month = {oct},
+  lang = {ja}
+}

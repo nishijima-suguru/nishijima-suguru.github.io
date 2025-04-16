@@ -263,8 +263,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Nishijima]
-  first_name: [Suguru, S.]
+  last_name: [Nishijima, 西嶋, 西嶋傑]
+  first_name: [Suguru, S., 傑, 西嶋傑]
 
   style: apa
   locale: en
