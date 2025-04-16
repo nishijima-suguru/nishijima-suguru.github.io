@@ -407,11 +407,11 @@ ninja.data = [{
           description: "",
           section: "",handler: () => {
               window.location.href = "/jp/books/pt-br/the_godfather/";
-            },},{id: "news-galaxy-microbliverプロジェクトで行った糞便負荷量の予測モデルの研究成果がcellに発表されました",
-          title: 'GALAXY/MicrobLiverプロジェクトで行った糞便負荷量の予測モデルの研究成果がCellに発表されました。',
+            },},{id: "news-galaxy-microbliverプロジェクトで行った糞便負荷量の予測モデルの研究成果がcellに発表されました-https-www-sciencedirect-com-science-article-pii-s0092867424012042",
+          title: 'GALAXY/MicrobLiverプロジェクトで行った糞便負荷量の予測モデルの研究成果がCellに発表されました。    https://www.sciencedirect.com/science/article/pii/S0092867424012042',
           description: "",
-          section: "News",},{id: "news-筑波大学の秋山先生-東京医科大学の永田先生とのibdのマルチバイオーム解析研究がnature-communicationsに発表されました",
-          title: '筑波大学の秋山先生、東京医科大学の永田先生とのIBDのマルチバイオーム解析研究がNature Communicationsに発表されました。',
+          section: "News",},{id: "news-筑波大学の秋山先生-東京医科大学の永田先生とのibdのマルチバイオーム解析研究がnature-communicationsに発表されました-https-www-nature-com-articles-s41467-024-54797-8",
+          title: '筑波大学の秋山先生、東京医科大学の永田先生とのIBDのマルチバイオーム解析研究がNature Communicationsに発表されました。    https://www.nature.com/articles/s41467-024-54797-8',
           description: "",
           section: "News",},{id: "news-東京大学大学院-新領域創成科学研究科-生命データサイエンスセンターに特任准教授として着任しました",
           title: '東京大学大学院 新領域創成科学研究科 生命データサイエンスセンターに特任准教授として着任しました。',
