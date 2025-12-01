@@ -199,17 +199,6 @@ ninja.data = [{
             window.location.href = "/blog/2023/post-bibliography/";
           
         },
-      },{id: "post-a-post-with-jupyter-notebook",
-        
-          title: "a post with jupyter notebook",
-        
-        description: "an example of a blog post with jupyter notebook",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/jupyter-notebook/";
-          
-        },
       },{id: "post-a-post-with-custom-blockquotes",
         
           title: "a post with custom blockquotes",
@@ -415,6 +404,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-i-started-a-new-position-as-a-project-associate-professor-at-the-life-science-data-research-center-utokyo",
           title: 'I started a new position as a Project Associate Professor at the Life...',
+          description: "",
+          section: "News",},{id: "news-our-paper-describing-the-planetary-scale-viral-genome-database-vire-has-been-published-in-nucleic-acids-research-https-academic-oup-com-nar-advance-article-doi-10-1093-nar-gkaf1225-8356007",
+          title: 'Our paper describing the planetary-scale viral genome database “VIRE” has been published in...',
           description: "",
           section: "News",},{id: "projects-project-7",
           title: 'project 7',

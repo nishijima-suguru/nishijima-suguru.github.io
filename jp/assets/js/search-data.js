@@ -199,17 +199,6 @@ ninja.data = [{
             window.location.href = "/jp/blog/2023/post-bibliography/";
           
         },
-      },{id: "post-a-post-with-jupyter-notebook",
-        
-          title: "a post with jupyter notebook",
-        
-        description: "an example of a blog post with jupyter notebook",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/jp/blog/2023/jupyter-notebook/";
-          
-        },
       },{id: "post-a-post-with-custom-blockquotes",
         
           title: "a post with custom blockquotes",
@@ -415,6 +404,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-東京大学大学院-新領域創成科学研究科-生命データサイエンスセンターに特任准教授として着任しました",
           title: '東京大学大学院 新領域創成科学研究科 生命データサイエンスセンターに特任准教授として着任しました。',
+          description: "",
+          section: "News",},{id: "news-地球規模のウイルスデータベース-vire-に関する論文がnucleic-acids-researchに掲載されました-https-academic-oup-com-nar-advance-article-doi-10-1093-nar-gkaf1225-8356007",
+          title: '地球規模のウイルスデータベース「VIRE」に関する論文がNucleic Acids Researchに掲載されました。    https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaf1225/8356007',
           description: "",
           section: "News",},{id: "projects-project-7",
           title: 'project 7',
