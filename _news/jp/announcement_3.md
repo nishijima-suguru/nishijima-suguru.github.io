@@ -1,11 +1,11 @@
 ---
 layout: post
-date: 2024-11-14 00:00:00-0000
+date: 2024-11-27 00:00:00-0000
 inline: true
 related_posts: false
 ---
 
-GALAXY/MicrobLiverプロジェクトで行った糞便負荷量の予測モデルの研究成果がCellに発表されました。
-<a href="https://www.sciencedirect.com/science/article/pii/S0092867424012042" target="_blank" rel="noopener noreferrer">
-  https://www.sciencedirect.com/science/article/pii/S0092867424012042
+筑波大学の秋山先生、東京医科大学の永田先生とのIBDのマルチバイオーム解析研究がNature Communicationsに発表されました。
+<a href="https://www.nature.com/articles/s41467-024-54797-8" target="_blank" rel="noopener noreferrer">
+  https://www.nature.com/articles/s41467-024-54797-8
 </a>
