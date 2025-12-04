@@ -406,7 +406,7 @@ ninja.data = [{
           title: '東京大学大学院 新領域創成科学研究科 生命データサイエンスセンターに特任准教授として着任しました。',
           description: "",
           section: "News",},{id: "news-地球規模のウイルスデータベース-vire-に関する論文がnucleic-acids-researchに掲載されました-https-academic-oup-com-nar-advance-article-doi-10-1093-nar-gkaf1225-8356007",
-          title: '地球規模のウイルスデータベース「VIRE」に関する論文がNucleic Acids Researchに掲載されました。    https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaf1225/8356007',
+          title: '地球規模のウイルスデータベース「VIRE」に関する論文がNucleic Acids Researchに掲載されました。      https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaf1225/8356007',
           description: "",
           section: "News",},{id: "projects-project-7",
           title: 'project 7',
