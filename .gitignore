@@ -1,0 +1,25 @@
+# Jekyll build output. CI rebuilds the site and publishes it to the gh-pages
+# branch, so a committed _site/ is never what gets served — it only creates
+# noisy diffs and merge conflicts.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Plugin caches
+.tweet-cache/
+
+# Ruby
+vendor/
+.bundle/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor backups
+*~
+\#*\#
+.\#*
