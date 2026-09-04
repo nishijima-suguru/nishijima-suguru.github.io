@@ -194,6 +194,15 @@
 {% if site.enable_publication_badges.dimensions %}
   <script async src="https://badge.dimensions.ai/badge.js"></script>
 {% endif %}
+{% if site.enable_publication_badges.openalex %}
+  <script>
+    window.__pubMetrics = {
+      mailto: {{ site.openalex_mailto | default: '' | jsonify }},
+      strings: {{ site.data[site.active_lang].strings.metrics | jsonify }}
+    };
+  </script>
+  <script defer src="{{ '/assets/js/publication-metrics.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
 
 {% if site.enable_math %}
   <!-- MathJax -->

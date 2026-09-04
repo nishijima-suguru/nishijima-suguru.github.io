@@ -1,7 +1,20 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
+% Per-entry keys this site understands beyond standard BibTeX:
+%
+%   selected          {true} to surface the paper on the home page
+%   award             text revealed when the award chip is clicked
+%   award_name        the chip's label; defaults to "Awarded" if omitted
+%   press_jp / highlight / highlight_jp / newspaper_jp / link   coverage buttons
+%
+% Author roles are derived from the markers on the surname: * = co-first,
+% † = corresponding. `role = {...}` overrides the derivation.
+%
+% Example of an award chip:
+%
+%   award_name = {Editor's Choice},
+%   award = {Selected as an Editor's Choice article by the journal.},
 
 @article{review_2026,
   title = {The Japanese gut microbiome: ecology, uniqueness, and impact on health and disease},

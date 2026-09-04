@@ -83,9 +83,8 @@ footer:
   copyright: Copyright
   last_updated: "Last updated:"
 footer_text: > # the ">" symbol means to ignore newlines until "titles:"
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+  Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and the <a href="https://github.com/george-gca/multi-language-al-folio">multi-language-al-folio</a> theme.
+  Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 latest_posts: latest posts
 months:
   long:
@@ -132,6 +131,16 @@ post:
   created_by: by
   last_updated: last updated in
 references: References
+roles:
+  first: First author
+  co_first: Co-first author
+  corresponding: Corresponding author
+# Only the two badges that survive on a publication entry: the citation
+# percentile (shown only when notable) and open-access status. Both come from
+# OpenAlex at page load.
+metrics:
+  percentile_title: "Citation percentile among works of the same field, type and year."
+  top_pct: "Top %{n}%"
 related_posts:
   description: "Here are some more articles you might like to read next:"
   title: Enjoy Reading This Article?
@@ -161,4 +170,7 @@ search:
     title: Use system default theme
   theme: Theme
 selected_publications: Selected publications
-site_description: A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+site_description: >-
+  Suguru Nishijima is a computational biologist at the Life Science Data Research Center,
+  the University of Tokyo, studying the human gut microbiome with large-scale metagenomics
+  and machine learning.

@@ -7,61 +7,25 @@ nav: true
 nav_order: 2
 ---
 
-<!-- 目次（スクロール連動でハイライト） -->
-<div style="position: fixed; top: 80px; left: 80px; font-size: 1em;">
-  <a href="#original-papers" class="toc-link">原著論文</a><br>
-  <a href="#japanese-reviews" class="toc-link">日本語総説</a>
+<p>
+  Google Scholarは<a href="https://scholar.google.co.jp/citations?user=HYB-2zQAAAAJ&hl" target="_blank" rel="noopener">こちら</a>
+</p>
+
+<!-- ページ内リンク。以前は position: fixed で画面左に固定していたため、
+     狭い画面では本文に重なっていた。通常フローに戻している。 -->
+<nav class="page-jumplist" aria-label="ページ内リンク">
+  <a href="#original-papers">原著論文</a>
+  <a href="#japanese-reviews">日本語総説</a>
+</nav>
+
+<h1 id="original-papers">原著論文</h1>
+
+<div class="publications">
+  {% bibliography %}
 </div>
 
-<!-- 本文 -->
-<div style="margin-left: 50px;">
-  <p>
-    Google Scholarに掲載の業績は
-    <a href="https://scholar.google.co.jp/citations?user=HYB-2zQAAAAJ&hl" target="_blank">こちら</a>
-  </p>
+<h1 id="japanese-reviews">日本語総説</h1>
 
-  <h1 id="original-papers" style="margin-top: 2em">原著論文</h1>
-  <!-- _pages/publications.md -->
-  <div class="publications">
-    {% bibliography %}
-  </div>
-
-  <h1 id="japanese-reviews" style="margin-top: 4em">日本語総説</h1>
-  <!-- _pages/publications-jp.md -->
-  <div class="publications">
-    {% bibliography --file papers-jp.bib --template bib-jp %}
-  </div>
+<div class="publications">
+  {% bibliography --file papers-jp.bib --template bib-jp %}
 </div>
-
-<!-- スクロール連動ハイライト用JavaScript -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("h1[id]");
-  const links = document.querySelectorAll(".toc-link");
-
-  function highlightCurrentSection() {
-    let current = "";
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 120) {
-        current = section.id;
-      }
-    });
-
-    links.forEach((link) => {
-      if (link.getAttribute("href") === "#" + current) {
-        link.style.fontWeight = "normal";
-        link.style.color = "#6f42c1";
-        link.style.textDecoration = "underline";
-      } else {
-        link.style.fontWeight = "normal";
-        link.style.color = "inherit";
-        link.style.textDecoration = "none";
-      }
-    });
-  }
-
-  window.addEventListener("scroll", highlightCurrentSection);
-  highlightCurrentSection();
-});
-</script>

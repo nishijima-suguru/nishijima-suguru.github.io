@@ -8,11 +8,9 @@ nav_order: 2
 ---
 
 <p>
-  View my full list on
-  <a href="https://scholar.google.co.jp/citations?user=HYB-2zQAAAAJ&hl" target="_blank">Google Scholar</a>
+  Also on
+  <a href="https://scholar.google.co.jp/citations?user=HYB-2zQAAAAJ&hl" target="_blank" rel="noopener">Google Scholar</a>
 </p>
-
-<!-- _pages/publications.md -->
 
 <div class="publications">
 

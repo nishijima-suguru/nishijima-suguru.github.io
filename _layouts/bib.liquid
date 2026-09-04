@@ -1,7 +1,19 @@
 ---
 ---
+{%- comment -%}
+  The thumbnail column is only emitted when the entry actually has a venue badge
+  or a preview image. papers.bib has neither, so those entries run full width;
+  papers-jp.bib carries cover images and keeps the column. Reserving it
+  unconditionally gave up a sixth of every row to an empty div.
+{%- endcomment -%}
+{% assign has_sidebar = false %}
+{% if site.enable_publication_thumbnails %}
+  {% if entry.abbr or entry.preview %}
+    {% assign has_sidebar = true %}
+  {% endif %}
+{% endif %}
 <div class="row">
-  {% if site.enable_publication_thumbnails %}
+  {% if has_sidebar %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
@@ -30,15 +42,15 @@
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          {% capture preview_alt %}Cover image for “{{ entry.title }}”{% endcapture %}
           {%
             include figure.liquid
-            loading="eager"
+            loading="lazy"
             path=entry_path
-            sizes = "200px"
+            sizes = "(min-width: 576px) 165px, 90vw"
             class="preview z-depth-1 rounded"
             zoomable=true
-            avoid_scaling=true
-            alt=entry.preview
+            alt=preview_alt
           %}
         {% endif %}
       {% endif %}
@@ -46,9 +58,75 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div
+    id="{{ entry.key }}"
+    class="{% if has_sidebar %}col-sm-10{% else %}col-sm-12{% endif %} pub-entry"
+    {% comment %}col-sm-2 sidebar + col-sm-10 body = 12.{% endcomment %}
+    {% if entry.doi %}data-doi="{{ entry.doi }}"{% endif %}
+  >
+    {%- comment -%}
+      The title is the link to the paper. A separate "DOI" button restated what
+      clicking the title should obviously do, and cost a row of buttons on every
+      entry. Falls back to `url`, then `link` (the Japanese reviews carry only
+      the latter).
+    {%- endcomment -%}
+    {%- assign title_url = null -%}
+    {%- if entry.doi -%}
+      {%- assign title_url = entry.doi | prepend: 'https://doi.org/' -%}
+    {%- elsif entry.url -%}
+      {%- assign title_url = entry.url -%}
+    {%- elsif entry.link -%}
+      {%- assign title_url = entry.link -%}
+    {%- endif -%}
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {%- if title_url -%}
+        <a href="{{ title_url }}">{{ entry.title }}</a>
+      {%- else -%}
+        {{ entry.title }}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%}
+      Author role. Derived from the markers the .bib already carries on the site
+      owner's surname (`*` = co-first, `†` = corresponding), so no bib edits are
+      needed; `role = {...}` in an entry overrides the derivation. This is scanned
+      over the *full* author array rather than inside the display loop below,
+      which is capped at site.max_author_limit and would miss a corresponding
+      author sitting past the cut.
+    {%- endcomment -%}
+    {%- assign self_is_first = false -%}
+    {%- assign self_is_cofirst = false -%}
+    {%- assign self_is_corresponding = false -%}
+    {%- for a in entry.author_array -%}
+      {%- assign a_last_clean = a.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+      {%- if site.scholar.last_name contains a_last_clean and site.scholar.first_name contains a.first -%}
+        {%- if forloop.first -%}{%- assign self_is_first = true -%}{%- endif -%}
+        {%- if a.last contains '*' or a.last contains '∗' -%}{%- assign self_is_cofirst = true -%}{%- endif -%}
+        {%- if a.last contains '†' -%}{%- assign self_is_corresponding = true -%}{%- endif -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if entry.role or self_is_first or self_is_cofirst or self_is_corresponding -%}
+      <div class="author-roles">
+        {%- if entry.role -%}
+          {%- assign custom_roles = entry.role | split: ',' -%}
+          {%- for r in custom_roles -%}
+            <span class="role-chip">{{ r | strip }}</span>
+          {%- endfor -%}
+        {%- else -%}
+          {%- if self_is_cofirst -%}
+            <span class="role-chip">{{ site.data[site.active_lang].strings.roles.co_first }}</span>
+          {%- elsif self_is_first -%}
+            <span class="role-chip">{{ site.data[site.active_lang].strings.roles.first }}</span>
+          {%- endif -%}
+          {%- if self_is_corresponding -%}
+            <span class="role-chip">{{ site.data[site.active_lang].strings.roles.corresponding }}</span>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -183,10 +261,25 @@
     <div class="periodical">
       {{ periodical | strip }}
     </div>
-    <div class="periodical">
-      {{ entry.note | strip }}
-    </div>
+    {%- comment -%}
+      Only emit the note row when there is a note. The unconditional div left an
+      empty line of height on every entry that had none — which is most of them.
+    {%- endcomment -%}
+    {% if entry.note %}
+      <div class="periodical">{{ entry.note | strip }}</div>
+    {% endif %}
 
+    {%- comment -%}
+      Nothing in this row is guaranteed to exist — with the DOI button gone and
+      coverage moved to .pub-signals, most entries have no buttons at all. The
+      div is rendered only when something will go in it; a CSS :empty rule does
+      not help because Liquid leaves whitespace text nodes behind.
+    {%- endcomment -%}
+    {%- assign has_links = false -%}
+    {%- if entry.award or entry.abstract or entry.arxiv or entry.bibtex_show or entry.html or entry.pdf or entry.supp or entry.video or entry.blog or entry.code or entry.poster or entry.slides or entry.website -%}
+      {%- assign has_links = true -%}
+    {%- endif -%}
+    {% if has_links %}
     <!-- Links/Buttons -->
     <div class="links">
       {% if entry.award %}
@@ -195,16 +288,13 @@
         </a>
       {% endif %}
       {% if entry.abstract %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-      {% endif %}
-      {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">LINK</a>
+        <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
       {% endif %}
       {% if entry.arxiv %}
         <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {% endif %}
       {% if entry.bibtex_show %}
-        <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
+        <a class="bibtex btn btn-sm z-depth-0" role="button">BibTeX</a>
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
@@ -236,21 +326,6 @@
         <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button">Blog</a>
       {% endif %}
 
-      {% if entry.press_jp %}
-        <a href="{{ entry.press_jp }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">プレスリリース</a>
-      {% endif %}
-      {% if entry.highlight %}
-        <a href="{{ entry.highlight }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">Research Highlight</a>
-      {% endif %}
-      {% if entry.highlight_jp %}
-        <a href="{{ entry.highlight_jp }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">日本語記事</a>
-      {% endif %}
-      {% if entry.newspaper_jp %}
-        <a href="{{ entry.newspaper_jp }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">新聞記事</a>
-      {% endif %}
-      {% if entry.link %}
-        <a href="{{ entry.link }}" class="btn btn-sm z-depth-0" role="button" style="color: blue;">LINK</a>
-      {% endif %}
 
       {% if entry.code %}
         <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
@@ -273,6 +348,7 @@
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
       {% endif %}
     </div>
+    {% endif %}
     {% if site.enable_publication_badges %}
       {% assign entry_has_altmetric_badge = false %}
       {% if entry.altmetric and entry.altmetric != 'false' %}
@@ -296,9 +372,18 @@
       {% if entry_has_altmetric_badge or entry_has_dimensions_badge or entry_has_google_scholar_badge or entry_has_inspirehep_badge %}
         <div class="badges">
           {% if site.enable_publication_badges.altmetric and entry_has_altmetric_badge %}
+            {%- comment -%}
+              "2" is Altmetric's legacy v2 badge: an 88x18 PNG strip reading
+              "Altmetric NN". "donut" switches to the actual 64x64 donut, whose
+              coloured ring shows where the attention came from.
+              Sizes, from Altmetric's own badge script:
+                v1 110x20  v2 88x18  v3 99x18  v4 85x15
+                donut 64x64  medium-donut 120x120  large-donut 180x180
+                bar 100x15  medium-bar 120x18  large-bar 180x27
+            {%- endcomment -%}
             <span
               class="altmetric-embed"
-              data-badge-type="2"
+              data-badge-type="donut"
               data-badge-popover="right"
               {% if entry.altmetric != blank and entry.altmetric != 'true' %}
                 data-altmetric-id="{{ entry.altmetric }}"
@@ -325,9 +410,15 @@
               {% else %}
                 data-pmid="{{ entry.pmid }}"
               {% endif %}
-              data-style="small_rectangle"
+              {%- comment -%}
+                Dimensions renders a circle template for *_circle and a
+                rectangle template for *_rectangle. small_circle gives the
+                round citation ring that pairs with the Altmetric donut.
+                Valid: small_circle, medium_circle, large_circle,
+                        small_rectangle, large_rectangle.
+              {%- endcomment -%}
+              data-style="small_circle"
               data-legend="hover-right"
-              style="margin-bottom: 3px;"
             ></span>
           {% endif %}
           {% if site.enable_publication_badges.google_scholar and entry_has_google_scholar_badge %}
@@ -336,8 +427,13 @@
               aria-label="Google Scholar link"
               role="button"
             >
+              {%- comment -%}
+                The theme's default was a Google-blue badge on beige, which
+                fought with the site accent. Teal on light grey keeps the badge
+                part of the page; the Scholar logo still says where it is from.
+              {%- endcomment -%}
               <img
-                src="https://img.shields.io/badge/scholar-{% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}-4285F4?logo=googlescholar&labelColor=beige"
+                src="https://img.shields.io/badge/scholar-{% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %}-0F6F6C?logo=googlescholar&logoColor=white&labelColor=4B5563"
                 alt="{% google_scholar_citations site.data.socials.scholar_userid entry.google_scholar_id %} Google Scholar citations"
               >
             </a>
@@ -357,6 +453,37 @@
         </div>
       {% endif %}
     {% endif %}
+
+    {%- comment -%}
+      One row of signals about the paper's reception: the citation percentile
+      (filled in by assets/js/publication-metrics.js from OpenAlex) followed by
+      press and media coverage. The coverage links used to sit among the plain
+      link buttons, where they read as just more navigation.
+    {%- endcomment -%}
+    {%- assign has_press = false -%}
+    {%- if entry.press_jp or entry.highlight or entry.highlight_jp or entry.newspaper_jp -%}
+      {%- assign has_press = true -%}
+    {%- endif -%}
+    {% if has_press or entry.doi %}
+      <div class="pub-signals">
+        {% if entry.doi and site.enable_publication_badges.openalex %}
+          <div class="pub-metrics" data-metrics-for="{{ entry.doi }}"></div>
+        {% endif %}
+        {% if entry.press_jp %}
+          <a href="{{ entry.press_jp }}" class="chip chip-press">プレスリリース</a>
+        {% endif %}
+        {% if entry.highlight %}
+          <a href="{{ entry.highlight }}" class="chip chip-press">Research Highlight</a>
+        {% endif %}
+        {% if entry.highlight_jp %}
+          <a href="{{ entry.highlight_jp }}" class="chip chip-press">日本語記事</a>
+        {% endif %}
+        {% if entry.newspaper_jp %}
+          <a href="{{ entry.newspaper_jp }}" class="chip chip-press">新聞記事</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
 
     {% if entry.award %}
       <!-- Hidden Award block -->
