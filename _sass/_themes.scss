@@ -8,18 +8,37 @@
   color-scheme: light;
   --global-bg-color: #{$white-color};
   --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
+  --global-text-color: #{$ink-color};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
+  --global-theme-color: #{$accent-700};
+  --global-hover-color: #{$accent-800};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
   --global-footer-link-color: #{$white-color};
   --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.6);
+  --global-divider-color: #{$rule-color-light};
   --global-card-bg-color: #{$white-color};
   --global-highlight-color: #{$red-color-dark};
+
+  // Accent steps exposed to components (badges, chips, charts).
+  --global-accent-strong: #{$accent-900};
+  --global-accent-mid: #{$accent-500};
+  --global-accent-soft: #{$accent-100};
+  --global-accent-wash: #{$accent-050};
+  // Text that sits on top of a filled accent surface.
+  --global-on-accent-color: #{$white-color};
+
+  // Chip palette: two quiet fills. The site's teal marks authorship, amber
+  // marks everything else (citation percentile, press coverage). Distinction
+  // comes from the ink inside the chip, not from loud fills — a cool/warm pair
+  // stays separable under every form of colour blindness.
+  --global-chip-role-bg: #{$accent-100};
+  --global-chip-role-fg: #{$accent-900}; // 10.25:1
+  --global-chip-signal-bg: #fbedd9;
+  --global-chip-signal-fg: #7a4a06; // 6.48:1
+  // A rule that must stay visible where --global-divider-color is too faint.
+  --global-rule-strong-color: #{color.adjust($rule-color-light, $lightness: -12%)};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
     #{color.channel($black-color, "green", $space: rgb)},
@@ -82,15 +101,32 @@ html[data-theme="dark"] {
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$grey-color-light};
   --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
+  --global-theme-color: #{$accent-300};
+  --global-hover-color: #{$accent-400};
+  --global-hover-text-color: #{$grey-color-dark};
   --global-footer-bg-color: #{$grey-color-light};
   --global-footer-text-color: #{$grey-color-dark};
   --global-footer-link-color: #{$black-color};
   --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
+  --global-divider-color: #{$rule-color-dark};
   --global-card-bg-color: #{$grey-900};
+  --global-highlight-color: #f08a86;
+
+  // Dark-mode accent steps. Deliberately re-picked against the dark surface
+  // rather than flipped from the light ramp.
+  --global-accent-strong: #{$accent-100};
+  --global-accent-mid: #{$accent-400};
+  --global-accent-soft: #{rgba($accent-300, 0.16)};
+  --global-accent-wash: #{rgba($accent-300, 0.08)};
+  // On a filled accent surface in dark mode the accent is light, so ink flips.
+  --global-on-accent-color: #{$grey-color-dark};
+
+  // Chip palette, re-picked against the dark surface rather than flipped.
+  --global-chip-role-bg: #{rgba($accent-300, 0.16)};
+  --global-chip-role-fg: #{$accent-100}; // 10.04:1
+  --global-chip-signal-bg: rgba(240, 194, 123, 0.16);
+  --global-chip-signal-fg: #f2c98a; // 7.55:1
+  --global-rule-strong-color: #{color.adjust($rule-color-dark, $lightness: 12%)};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($white-color, "red", $space: rgb)},
     #{color.channel($white-color, "green", $space: rgb)},

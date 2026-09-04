@@ -24,17 +24,70 @@ $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 
-$grey-color: #828282 !default;
+// -----------------------------------------------------------------------------
+// Accent ramp — deep teal.
+// This is the single hue the whole site is themed on. Steps are chosen so the
+// light-mode accent clears WCAG AA on white (5.98:1) and the dark-mode accent
+// clears AA on the dark surface (9.10:1). If you ever want a different accent,
+// change only $accent-* below; nothing else references a hue directly.
+// -----------------------------------------------------------------------------
+$accent-900: #073b39 !default; // deepest — headings on tinted surfaces
+$accent-800: #0b5654 !default; // hover / pressed (8.49:1 on white)
+$accent-700: #0f6f6c !default; // light-mode accent (5.98:1 on white)
+$accent-500: #199c96 !default; // mid step — borders, chart marks
+$accent-400: #4fc3ba !default; // dark-mode hover (7.99:1 on #1c1c1d)
+$accent-300: #5ecfc6 !default; // dark-mode accent (9.10:1 on #1c1c1d)
+$accent-100: #d4efec !default; // tinted fills / badge backgrounds
+$accent-050: #eef8f7 !default; // faintest wash — code background
+
+$grey-color: #6b7280 !default; // muted text; 4.83:1 on white (AA)
 $grey-color-light: color.adjust($grey-color, $lightness: 40%);
 $grey-color-dark: #1c1c1d;
 $grey-900: #212529;
+$rule-color-light: #e5e7eb !default; // hairline rules, light mode
+$rule-color-dark: #34343a !default; // hairline rules, dark mode
+$ink-color: #1a1a1a !default; // body text, light mode (17.4:1)
 
 $white-color: #ffffff !default;
 $black-color: #000000 !default;
 
 // Theme colors
-$code-bg-color-light: rgba($purple-color, 0.05);
+$code-bg-color-light: $accent-050;
 $code-bg-color-dark: #2c3237 !default;
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+// MDB ships `body { font-family: "Roboto"; font-weight: 300 }`, which renders the
+// whole site in Roboto Light and leaves Japanese text to an unstyled system
+// fallback. These stacks override that; see the `body` rule in _base.scss.
+$font-sans:
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Helvetica Neue",
+  "Noto Sans JP",
+  "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans",
+  "Yu Gothic Medium",
+  "Yu Gothic",
+  Meiryo,
+  sans-serif !default;
+$font-serif:
+  "Source Serif 4",
+  "Noto Serif JP",
+  "Hiragino Mincho ProN",
+  "Yu Mincho",
+  Georgia,
+  serif !default;
+$font-mono:
+  "SFMono-Regular",
+  ui-monospace,
+  Menlo,
+  Consolas,
+  "Liberation Mono",
+  monospace !default;
 
 // Font awesome location
 $fa-font-path: "../webfonts";
