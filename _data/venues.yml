@@ -1,9 +1,42 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+# Venue badges shown beside a publication.
+#
+# A badge only appears when the corresponding .bib entry carries a matching
+# `abbr = {...}` key, e.g.
+#
+#   @article{VIRE_2025,
+#     abbr = {NAR},
+#     ...
+#   }
+#
+# Leave `color` unset to use the site accent, which keeps the list looking like
+# one thing. Set it only where a journal's own colour genuinely helps someone
+# scan — a rainbow of venue colours undoes the point of the badge.
+#
+# The theme's original Einstein-era entries (AJP, PhysRev, Vision) were removed.
 
-"PhysRev":
-  url: https://journals.aps.org/
-
-"Vision":
-  color: "#009f36"
+"Cell":
+  url: https://www.cell.com/cell/home
+"Nat Commun":
+  url: https://www.nature.com/ncomms/
+"NAR":
+  url: https://academic.oup.com/nar
+"Microbiome":
+  url: https://microbiomejournal.biomedcentral.com/
+"Mol Syst Biol":
+  url: https://www.embopress.org/journal/17444292
+"Gastroenterology":
+  url: https://www.gastrojournal.org/
+"J Hepatol":
+  url: https://www.journal-of-hepatology.eu/
+"DNA Res":
+  url: https://academic.oup.com/dnaresearch
+"mBio":
+  url: https://journals.asm.org/journal/mbio
+"Sci Rep":
+  url: https://www.nature.com/srep/
+"PJA-B":
+  url: https://www.jstage.jst.go.jp/browse/pjab
+"J Plant Res":
+  url: https://link.springer.com/journal/10265
+"Drug Discov Ther":
+  url: https://www.ddtjournal.com/
