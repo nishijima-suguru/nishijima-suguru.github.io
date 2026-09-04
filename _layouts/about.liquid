@@ -2,11 +2,46 @@
 layout: default
 ---
 <div class="post">
+  {%- comment -%}
+    The profile photo sits *before* the header in the DOM on purpose. A float
+    cannot rise above a preceding block, so while it lived inside <article> its
+    top edge started below the name and subtitle. Placing it first lets the
+    heading, the subtitle and the bio all wrap around it, with the top of the
+    photo level with the top of the name.
+  {%- endcomment -%}
+  {% if page.profile %}
+    <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+      {% if page.profile.image %}
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        {% if page.profile.image_circular %}
+          {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+        {% else %}
+          {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+        {% endif %}
+        {%- comment -%}
+          `sizes` must describe the rendered width, not a guess. .profile is 30%
+          of a 1000px container on desktop and full width below the sm
+          breakpoint; the theme's "100px" made the browser pick the 480w source
+          for a slot roughly three times that, so the photo came out soft on any
+          high-DPI display.
+        {%- endcomment -%}
+        {% capture sizes %}(min-width: 576px) 300px, 90vw{% endcapture %}
+        {% capture profile_alt %}{% include display_name.liquid %}{% endcapture %}
+        {%
+          include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile_alt
+          cache_bust=true
+        %}
+      {% endif %}
+      {% if page.profile.more_info %}
+        <div class="more-info">{{ page.profile.more_info }}</div>
+      {% endif %}
+    </div>
+  {% endif %}
+
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
-        <span>{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        {% include display_name.liquid wrap_first=true %}
       {% else %}
         {{ site.title }}
       {% endif %}
@@ -15,51 +50,43 @@ layout: default
   </header>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-          {% endif %}
-          {% capture sizes %}100px{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-
     <div class="clearfix">{{ content }}</div>
+
+    {%- comment -%}
+      The intro, the news list and the selected papers used to run together with
+      only an <h2> between them, so the page read as one continuous column. Each
+      block is now a <section> carrying a rule and real spacing above it — the
+      same hairline the publications list uses for its year separators.
+    {%- endcomment -%}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.news }}</a>
-      </h2>
-      {% include news.liquid limit=true %}
+      <section class="home-section">
+        <h2 class="home-section-title">
+          <a href="{{ '/news/' | relative_url }}">{{ site.data[site.active_lang].strings.news }}</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      </section>
     {% endif %}
 
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.latest_posts }}</a>
-      </h2>
-      {% include latest_posts.liquid %}
+      <section class="home-section">
+        <h2 class="home-section-title">
+          <a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.latest_posts }}</a>
+        </h2>
+        {% include latest_posts.liquid %}
+      </section>
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">{{ site.data[site.active_lang].strings.selected_publications }}</a>
-      </h2>
-      {% include selected_papers.liquid %}
+      <section class="home-section">
+        <h2 class="home-section-title">
+          <a href="{{ '/publications/' | relative_url }}">{{ site.data[site.active_lang].strings.selected_publications }}</a>
+        </h2>
+        {% include selected_papers.liquid %}
+      </section>
     {% endif %}
 
     <!-- Social -->

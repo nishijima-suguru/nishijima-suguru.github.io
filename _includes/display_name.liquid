@@ -1,0 +1,33 @@
+{%- comment -%}
+  The site owner's name in the active language.
+
+  _data/<lang>/strings.yml may carry a localized form of each name part, keyed by
+  the Latin spelling:
+
+      Suguru: 傑
+      Nishijima: 西嶋
+
+  When both parts resolve, the name is rendered in the order that language uses —
+  Japanese puts the family name first, separated by an ideographic space (U+3000),
+  which is the conventional spacing for a Japanese personal name. Otherwise it
+  falls back to the Latin given-then-family form.
+
+  Pass `wrap_first=true` to get the first-rendered part in a <span>, matching the
+  markup the navbar and the home page header already expect.
+{%- endcomment -%}
+{%- assign name_strings = site.data[site.active_lang].strings -%}
+{%- assign localized_first = name_strings[site.first_name] -%}
+{%- assign localized_last = name_strings[site.last_name] -%}
+{%- if localized_first != blank and localized_last != blank -%}
+  {%- if include.wrap_first -%}
+    <span>{{ localized_last }}</span>　{{ localized_first }}
+  {%- else -%}
+    {{- localized_last }}　{{ localized_first -}}
+  {%- endif -%}
+{%- else -%}
+  {%- if include.wrap_first -%}
+    <span>{{ site.first_name }}</span>{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}
+  {%- else -%}
+    {{- site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name -}}
+  {%- endif -%}
+{%- endif -%}

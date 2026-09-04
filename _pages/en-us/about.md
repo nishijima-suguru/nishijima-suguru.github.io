@@ -3,7 +3,7 @@ page_id: about
 layout: about
 title: Home
 permalink: /
-subtitle: <a href='#'></a>Life Science Data Research Center at the University of Tokyo.
+subtitle: Life Science Data Research Center at the University of Tokyo.
 
 profile:
   align: right

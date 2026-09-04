@@ -3,7 +3,7 @@ page_id: about
 layout: about
 title: ホーム
 permalink: /
-subtitle: <a href='#'></a>東京大学大学院 新領域創成科学研究科 生命データサイエンスセンター
+subtitle: 東京大学大学院 新領域創成科学研究科 生命データサイエンスセンター
 
 profile:
   align: right
